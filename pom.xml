@@ -15,7 +15,7 @@
 				<groupId>tn.esprit</groupId>
 				<artifactId>imputation-ejb</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
-			<type>ejb</type>
+				<type>ejb</type>
 		</dependency>
 		
 		<dependency>
