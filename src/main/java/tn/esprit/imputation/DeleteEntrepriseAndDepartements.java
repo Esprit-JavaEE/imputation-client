@@ -8,9 +8,9 @@ import tn.esprit.timesheet.entities.Departement;
 import tn.esprit.timesheet.entities.Entreprise;
 import tn.esprit.timesheet.services.interfaces.EntrepriseServiceRemote;
 
-public class DeleteEntrepriseAndDepartement {
+public class DeleteEntrepriseAndDepartements {
 	
-	private DeleteEntrepriseAndDepartement() {
+	private DeleteEntrepriseAndDepartements() {
 		throw new IllegalAccessError();
 	}
 
@@ -19,17 +19,18 @@ public class DeleteEntrepriseAndDepartement {
 		Context context = new InitialContext();
 		EntrepriseServiceRemote entrepriseServiceRemote = (EntrepriseServiceRemote) context.lookup(jndiName);
 		
-		Departement depTelecom = new Departement();
-		depTelecom.setId(1);
-		entrepriseServiceRemote.deleteDepartement(depTelecom);
+		//Supprimer le Master(Departement) puis le Slave ! sinon ça ne marche pas
+		//Le mappedBy est du coté Slave !
+		int depRhId = 2;
+		int depTelecomId = 1;
 		
-		Departement depRH = new Departement();
-		depRH.setId(2);
-		entrepriseServiceRemote.deleteDepartement(depRH);
+		entrepriseServiceRemote.deleteDepartementById(depTelecomId);
+		entrepriseServiceRemote.deleteDepartementById(depRhId);
 		
-		Entreprise entreprise = new Entreprise();
-		entreprise.setId(1);
-		entrepriseServiceRemote.deleteEntreprise(entreprise);
+		int ssiiConsultingId = 1;
+		entrepriseServiceRemote.deleteEntrepriseById(ssiiConsultingId);
+		
+		
 	}
 
 }

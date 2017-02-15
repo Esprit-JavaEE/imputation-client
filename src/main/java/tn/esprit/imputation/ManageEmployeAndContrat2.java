@@ -1,8 +1,6 @@
 package tn.esprit.imputation;
 
-import java.time.LocalDate;
 import java.util.Calendar;
-import java.util.Date;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -13,9 +11,9 @@ import tn.esprit.timesheet.entities.Employe;
 import tn.esprit.timesheet.entities.Role;
 import tn.esprit.timesheet.services.interfaces.EmployeServiceRemote;
 
-public class AddEmployeAndContrat {
+public class ManageEmployeAndContrat2 {
 	
-	private AddEmployeAndContrat() {
+	private ManageEmployeAndContrat2() {
 		throw new IllegalAccessError();
 	}
 
@@ -38,7 +36,7 @@ public class AddEmployeAndContrat {
 		
 		int depRhId = 2;
 		int depTelecomId = 1;
-		
+				
 		employeServiceremote.affecterEmployeADepartement(khaledKallelId, depRhId);
 		employeServiceremote.affecterEmployeADepartement(khaledKallelId, depTelecomId);
 		
@@ -68,7 +66,19 @@ public class AddEmployeAndContrat {
 		employeServiceremote.affecterContratAEmploye(mohamedZitouniContratId, mohamedZitouniId);
 		employeServiceremote.affecterContratAEmploye(aymenOualiContratId, aymenOualiId);
 		employeServiceremote.affecterContratAEmploye(bochraBouzidContratId, bochraBouzidId);
-	
+		
+		//Delete employe
+		/*
+		System.out.println(employeServiceremote.getEmployePrenomById(aymenOualiId));
+		//On ne peut pas supprimer un departement donc on desaffecte l'employe du departement
+		employeServiceremote.desaffecterEmployeDuDepartement(aymenOualiId, depTelecomId);
+		//On supprime le contrat avant de supprimer l'employe
+		employeServiceremote.deleteContratById(aymenOualiContratId);
+		//Maintenant on peut supprimer l'employe
+		employeServiceremote.deleteEmployeById(aymenOualiId);
+		
+		employeServiceremote.mettreAjourEmailByEmployeId("newEmail@email.tn", bochraBouzidId);
+		*/
 	}
 
 	

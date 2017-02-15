@@ -11,9 +11,9 @@ import tn.esprit.timesheet.entities.Departement;
 import tn.esprit.timesheet.entities.Entreprise;
 import tn.esprit.timesheet.services.interfaces.EntrepriseServiceRemote;
 
-public class AddEntrepriseAndDepartements {
+public class AddEntrepriseAndDepartements1 {
 	
-	private AddEntrepriseAndDepartements() {
+	private AddEntrepriseAndDepartements1() {
 		throw new IllegalAccessError();
 	}
 
@@ -32,15 +32,16 @@ public class AddEntrepriseAndDepartements {
 		
 		int depTelecomId = entrepriseServiceRemote.ajouterDepartement(depTelecom);
 		
-		int depRh = entrepriseServiceRemote.ajouterDepartement(depRH);
+		int depRhId = entrepriseServiceRemote.ajouterDepartement(depRH);
 
 		entrepriseServiceRemote.affecterDepartementAEntreprise(depTelecomId, ssiiConsultingId);
-		entrepriseServiceRemote.affecterDepartementAEntreprise(depRh, ssiiConsultingId);
+		entrepriseServiceRemote.affecterDepartementAEntreprise(depRhId, ssiiConsultingId);
 
-		List<Departement> departements = entrepriseServiceRemote.getAllDepartementsByEntreprise(ssiiConsultingId);
-		for (Departement departement : departements) {
-			System.out.println(departement.getName());
+		List<String> departements = entrepriseServiceRemote.getAllDepartementsNamesByEntreprise(ssiiConsultingId);
+		for (String departementName : departements) {
+			System.out.println(departementName);
 		}
+		
 	}
 
 }
