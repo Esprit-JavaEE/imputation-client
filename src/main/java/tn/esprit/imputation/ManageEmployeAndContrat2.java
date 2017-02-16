@@ -1,6 +1,9 @@
 package tn.esprit.imputation;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -17,7 +20,7 @@ public class ManageEmployeAndContrat2 {
 		throw new IllegalAccessError();
 	}
 
-	public static void main(String[] args) throws NamingException {
+	public static void main(String[] args) throws NamingException, ParseException {
 		String jndiName = "imputation-ejb/EmployeService!tn.esprit.timesheet.services.interfaces.EmployeServiceRemote";
 		Context context = new InitialContext();
 		EmployeServiceRemote employeServiceremote = (EmployeServiceRemote) context.lookup(jndiName);
@@ -49,11 +52,12 @@ public class ManageEmployeAndContrat2 {
 
 		employeServiceremote.affecterEmployeADepartement(yosraArbiId, depTelecomId);
 
-		Contrat khaledKallelContrat = new Contrat(getCalendar(2015, 02, 01), "CDI", 1600); 
-		Contrat yosraArbiContrat = new Contrat(getCalendar(2010, 03, 01), "CDI", 2600);
-		Contrat mohamedZitouniContrat = new Contrat(getCalendar(2013, 05, 15), "CDI", 900);
-		Contrat aymenOualiContrat = new Contrat(getCalendar(2014, 05, 10), "CDI", 2000);
-		Contrat bochraBouzidContrat = new Contrat(getCalendar(2010, 06, 12), "CDI", 2700);
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		Contrat khaledKallelContrat = new Contrat(dateFormat.parse("01/02/2015"), "CDI", 1600); 
+		Contrat yosraArbiContrat = new Contrat(dateFormat.parse("01/03/2010"), "CDI", 2600);
+		Contrat mohamedZitouniContrat = new Contrat(dateFormat.parse("15/05/2013"), "CDI", 900);
+		Contrat aymenOualiContrat = new Contrat(dateFormat.parse("10/05/2014"), "CDI", 2000);
+		Contrat bochraBouzidContrat = new Contrat(dateFormat.parse("12/06/2010"), "CDI", 2700);
 		
 		int khaledKallelContratId = employeServiceremote.ajouterContrat(khaledKallelContrat);
 		int yosraArbiContratId = employeServiceremote.ajouterContrat(yosraArbiContrat);
@@ -81,12 +85,4 @@ public class ManageEmployeAndContrat2 {
 		*/
 	}
 
-	
-	private static Calendar getCalendar(int year, int month, int day) {
-	    Calendar c = Calendar.getInstance();
-	    c.set(Calendar.YEAR, year);
-	    c.set(Calendar.MONTH, month);
-	    c.set(Calendar.DAY_OF_MONTH, day);
-	    return c;
-	}
 }
