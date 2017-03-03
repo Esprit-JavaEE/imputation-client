@@ -52,41 +52,46 @@ public class ManageEmployeAndContrat2 {
 
 		employeServiceremote.affecterEmployeADepartement(yosraArbiId, depTelecomId);
 
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-		Contrat khaledKallelContrat = new Contrat(dateFormat.parse("01/02/2015"), "CDI", 1600); 
-		Contrat yosraArbiContrat = new Contrat(dateFormat.parse("01/03/2010"), "CDI", 2600);
-		Contrat mohamedZitouniContrat = new Contrat(dateFormat.parse("15/05/2013"), "CDI", 900);
-		Contrat aymenOualiContrat = new Contrat(dateFormat.parse("10/05/2014"), "CDI", 2000);
-		Contrat bochraBouzidContrat = new Contrat(dateFormat.parse("12/06/2010"), "CDI", 2700);
 		
-		int khaledKallelContratId = employeServiceremote.ajouterContrat(khaledKallelContrat);
-		int yosraArbiContratId = employeServiceremote.ajouterContrat(yosraArbiContrat);
-		int mohamedZitouniContratId = employeServiceremote.ajouterContrat(mohamedZitouniContrat);
-		int aymenOualiContratId = employeServiceremote.ajouterContrat(aymenOualiContrat);
-		int bochraBouzidContratId = employeServiceremote.ajouterContrat(bochraBouzidContrat);
-
-		employeServiceremote.affecterContratAEmploye(khaledKallelContratId, khaledKallelId);
-		employeServiceremote.affecterContratAEmploye(yosraArbiContratId, yosraArbiId);
-		employeServiceremote.affecterContratAEmploye(mohamedZitouniContratId, mohamedZitouniId);
-		employeServiceremote.affecterContratAEmploye(aymenOualiContratId, aymenOualiId);
-		employeServiceremote.affecterContratAEmploye(bochraBouzidContratId, bochraBouzidId);
+		
+		
+		
+//		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+//		Contrat khaledKallelContrat = new Contrat(dateFormat.parse("01/02/2015"), "CDI", 1600); 
+//		Contrat yosraArbiContrat = new Contrat(dateFormat.parse("01/03/2010"), "CDI", 2600);
+//		Contrat mohamedZitouniContrat = new Contrat(dateFormat.parse("15/05/2013"), "CDI", 900);
+//		Contrat aymenOualiContrat = new Contrat(dateFormat.parse("10/05/2014"), "CDI", 2000);
+//		Contrat bochraBouzidContrat = new Contrat(dateFormat.parse("12/06/2010"), "CDI", 2700);
+//		
+//		int khaledKallelContratId = employeServiceremote.ajouterContrat(khaledKallelContrat);
+//		int yosraArbiContratId = employeServiceremote.ajouterContrat(yosraArbiContrat);
+//		int mohamedZitouniContratId = employeServiceremote.ajouterContrat(mohamedZitouniContrat);
+//		int aymenOualiContratId = employeServiceremote.ajouterContrat(aymenOualiContrat);
+//		int bochraBouzidContratId = employeServiceremote.ajouterContrat(bochraBouzidContrat);
+//
+//		employeServiceremote.affecterContratAEmploye(khaledKallelContratId, khaledKallelId);
+//		employeServiceremote.affecterContratAEmploye(yosraArbiContratId, yosraArbiId);
+//		employeServiceremote.affecterContratAEmploye(mohamedZitouniContratId, mohamedZitouniId);
+//		employeServiceremote.affecterContratAEmploye(aymenOualiContratId, aymenOualiId);
+//		employeServiceremote.affecterContratAEmploye(bochraBouzidContratId, bochraBouzidId);
 		
 		//Delete employe
-		/*
-		System.out.println(employeServiceremote.getEmployePrenomById(aymenOualiId));
-		//On ne peut pas supprimer un departement donc on desaffecte l'employe du departement
-		employeServiceremote.desaffecterEmployeDuDepartement(aymenOualiId, depTelecomId);
-		//On supprime le contrat avant de supprimer l'employe
-		employeServiceremote.deleteContratById(aymenOualiContratId);
-		//Maintenant on peut supprimer l'employe
-		employeServiceremote.deleteEmployeById(aymenOualiId);
 		
-		employeServiceremote.mettreAjourEmailByEmployeId("newEmail@email.tn", bochraBouzidId);
-		*/
+		//System.out.println(employeServiceremote.getEmployePrenomById(aymenOualiId));
+		//On ne peut pas supprimer un departement donc on desaffecte l'employe du departement
+		//employeServiceremote.desaffecterEmployeDuDepartement(aymenOualiId, depTelecomId);
+		
+		//On supprime le contrat avant de supprimer l'employe
+		//employeServiceremote.deleteContratById(aymenOualiContratId);
+		//Maintenant on peut supprimer l'employe
+	employeServiceremote.deleteEmployeById(3);
+		
+		//employeServiceremote.mettreAjourEmailByEmployeId("newEmail@email.tn", bochraBouzidId);
+		
 		
 		//int aymenOualiId = 3;
-		float salaire = employeServiceremote.getSalaireByEmployeIdJPQL(aymenOualiId);
-		System.out.println("Le salaire de l'employe dont l'id est : " + aymenOualiId + " est : " + salaire);
+//		float salaire = employeServiceremote.getSalaireByEmployeIdJPQL(aymenOualiId);
+//		System.out.println("Le salaire de l'employe dont l'id est : " + aymenOualiId + " est : " + salaire);
 
 		
 	}

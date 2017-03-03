@@ -19,8 +19,8 @@ public class DeleteEntrepriseAndDepartements {
 		Context context = new InitialContext();
 		EntrepriseServiceRemote entrepriseServiceRemote = (EntrepriseServiceRemote) context.lookup(jndiName);
 		
-		//Supprimer le Master(Departement) puis le Slave ! sinon ça ne marche pas
-		//Le mappedBy est du coté Slave !
+		//Supprimer le Master(Departement) puis le Slave
+		//Le mappedBy est du coté Slave
 		int depRhId = 2;
 		int depTelecomId = 1;
 		

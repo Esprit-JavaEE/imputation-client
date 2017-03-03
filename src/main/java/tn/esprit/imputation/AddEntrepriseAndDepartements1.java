@@ -1,8 +1,6 @@
 package tn.esprit.imputation;
 
 
-import java.util.List;
-
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -25,23 +23,38 @@ public class AddEntrepriseAndDepartements1 {
 
 		
 		Entreprise ssiiConsulting = new Entreprise("SSII Consulting", "Cite El Ghazela");
-		int ssiiConsultingId = entrepriseServiceRemote.ajouterEntreprise(ssiiConsulting);
 		
-		Departement depRH = new Departement("RH");
 		Departement depTelecom = new Departement("Telecom");
+		Departement depRH = new Departement("RH");
 		
-		int depTelecomId = entrepriseServiceRemote.ajouterDepartement(depTelecom);
-		
-		int depRhId = entrepriseServiceRemote.ajouterDepartement(depRH);
+		ssiiConsulting.addDepartement(depRH);
+		ssiiConsulting.addDepartement(depTelecom);
 
-		entrepriseServiceRemote.affecterDepartementAEntreprise(depTelecomId, ssiiConsultingId);
-		entrepriseServiceRemote.affecterDepartementAEntreprise(depRhId, ssiiConsultingId);
+		int ssiiConsultingId = entrepriseServiceRemote.ajouterEntreprise(ssiiConsulting);
+		ssiiConsulting.setId(ssiiConsultingId);
+//		
+//		depTelecom.setEntreprise(ssiiConsulting);//En ajoutant cette ligne, on n'a plus besoin
+//		//d'appeler la methode affecterDepartementAEntreprise(depTelecomId, ssiiConsultingId)
+//		int depTelecomId = entrepriseServiceRemote.ajouterDepartement(depTelecom);
+//		
+//		depRH.setEntreprise(ssiiConsulting);//En ajoutant cette ligne, on n'a plus besoin
+//		//d'appeler la methode affecterDepartementAEntreprise(depTelecomId, ssiiConsultingId)
+//		int depRhId = entrepriseServiceRemote.ajouterDepartement(depRH);
+//
+//
+//		entrepriseServiceRemote.affecterDepartementAEntreprise(depTelecomId, ssiiConsultingId);
+//		entrepriseServiceRemote.affecterDepartementAEntreprise(depRhId, ssiiConsultingId);
 
-		List<String> departements = entrepriseServiceRemote.getAllDepartementsNamesByEntreprise(ssiiConsultingId);
-		for (String departementName : departements) {
-			System.out.println(departementName);
-		}
+//		List<String> departements = entrepriseServiceRemote.getAllDepartementsNamesByEntreprise(ssiiConsultingId);
+//		for (String departementName : departements) {
+//			System.out.println(departementName);
+//		}
 		
+//		Entreprise entreprise = entrepriseServiceRemote.getEntrepriseById(1);
+//		
+//		for(Departement dep : entreprise.getDepartements()){
+//			System.out.println(dep.getName());
+//		}
 	}
 
 }
