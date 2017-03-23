@@ -1,6 +1,7 @@
 package tn.esprit.imputation;
 
 
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -55,6 +56,8 @@ public class AddEntrepriseAndDepartements1 {
 //		for(Departement dep : entreprise.getDepartements()){
 //			System.out.println(dep.getName());
 //		}
+		
+		
 	}
 
 }

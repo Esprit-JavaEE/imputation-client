@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -11,6 +12,8 @@ import javax.naming.NamingException;
 
 import tn.esprit.timesheet.entities.Contrat;
 import tn.esprit.timesheet.entities.Employe;
+import tn.esprit.timesheet.entities.Entreprise;
+import tn.esprit.timesheet.entities.Mission;
 import tn.esprit.timesheet.entities.Role;
 import tn.esprit.timesheet.services.interfaces.EmployeServiceRemote;
 
@@ -56,24 +59,24 @@ public class ManageEmployeAndContrat2 {
 		
 		
 		
-//		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-//		Contrat khaledKallelContrat = new Contrat(dateFormat.parse("01/02/2015"), "CDI", 1600); 
-//		Contrat yosraArbiContrat = new Contrat(dateFormat.parse("01/03/2010"), "CDI", 2600);
-//		Contrat mohamedZitouniContrat = new Contrat(dateFormat.parse("15/05/2013"), "CDI", 900);
-//		Contrat aymenOualiContrat = new Contrat(dateFormat.parse("10/05/2014"), "CDI", 2000);
-//		Contrat bochraBouzidContrat = new Contrat(dateFormat.parse("12/06/2010"), "CDI", 2700);
-//		
-//		int khaledKallelContratId = employeServiceremote.ajouterContrat(khaledKallelContrat);
-//		int yosraArbiContratId = employeServiceremote.ajouterContrat(yosraArbiContrat);
-//		int mohamedZitouniContratId = employeServiceremote.ajouterContrat(mohamedZitouniContrat);
-//		int aymenOualiContratId = employeServiceremote.ajouterContrat(aymenOualiContrat);
-//		int bochraBouzidContratId = employeServiceremote.ajouterContrat(bochraBouzidContrat);
-//
-//		employeServiceremote.affecterContratAEmploye(khaledKallelContratId, khaledKallelId);
-//		employeServiceremote.affecterContratAEmploye(yosraArbiContratId, yosraArbiId);
-//		employeServiceremote.affecterContratAEmploye(mohamedZitouniContratId, mohamedZitouniId);
-//		employeServiceremote.affecterContratAEmploye(aymenOualiContratId, aymenOualiId);
-//		employeServiceremote.affecterContratAEmploye(bochraBouzidContratId, bochraBouzidId);
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		Contrat khaledKallelContrat = new Contrat(dateFormat.parse("01/02/2015"), "CDI", 1600); 
+		Contrat yosraArbiContrat = new Contrat(dateFormat.parse("01/03/2010"), "CDI", 2600);
+		Contrat mohamedZitouniContrat = new Contrat(dateFormat.parse("15/05/2013"), "CDI", 900);
+		Contrat aymenOualiContrat = new Contrat(dateFormat.parse("10/05/2014"), "CDI", 2000);
+		Contrat bochraBouzidContrat = new Contrat(dateFormat.parse("12/06/2010"), "CDI", 2700);
+		
+		int khaledKallelContratId = employeServiceremote.ajouterContrat(khaledKallelContrat);
+		int yosraArbiContratId = employeServiceremote.ajouterContrat(yosraArbiContrat);
+		int mohamedZitouniContratId = employeServiceremote.ajouterContrat(mohamedZitouniContrat);
+		int aymenOualiContratId = employeServiceremote.ajouterContrat(aymenOualiContrat);
+		int bochraBouzidContratId = employeServiceremote.ajouterContrat(bochraBouzidContrat);
+
+		employeServiceremote.affecterContratAEmploye(khaledKallelContratId, khaledKallelId);
+		employeServiceremote.affecterContratAEmploye(yosraArbiContratId, yosraArbiId);
+		employeServiceremote.affecterContratAEmploye(mohamedZitouniContratId, mohamedZitouniId);
+		employeServiceremote.affecterContratAEmploye(aymenOualiContratId, aymenOualiId);
+		employeServiceremote.affecterContratAEmploye(bochraBouzidContratId, bochraBouzidId);
 		
 		//Delete employe
 		
@@ -84,16 +87,40 @@ public class ManageEmployeAndContrat2 {
 		//On supprime le contrat avant de supprimer l'employe
 		//employeServiceremote.deleteContratById(aymenOualiContratId);
 		//Maintenant on peut supprimer l'employe
-	employeServiceremote.deleteEmployeById(3);
+		//employeServiceremote.deleteEmployeById(3);
 		
 		//employeServiceremote.mettreAjourEmailByEmployeId("newEmail@email.tn", bochraBouzidId);
 		
+		//employeServiceremote.mettreAjourEmailByEmployeIdJPQL("newEmail2@email.tn", bochraBouzidId);
+
+		//employeServiceremote.deleteAllContratJPQL();
 		
-		//int aymenOualiId = 3;
+		
+		// TEST
+//		int aymenOualiId = 3;
 //		float salaire = employeServiceremote.getSalaireByEmployeIdJPQL(aymenOualiId);
 //		System.out.println("Le salaire de l'employe dont l'id est : " + aymenOualiId + " est : " + salaire);
-
+//
+//		
+//		Entreprise entreprise = new Entreprise();
+//		entreprise.setId(1);
+//		List<Employe> employes = employeServiceremote.getAllEmployeByEntreprise(entreprise);
+//		
+//		for(Employe employe : employes){
+//			System.out.println("*****" + employe.getNom());
+//		}
+//		
+//		
+//		employeServiceremote.getSalaireMoyenByDepartementId(1);
 		
+//		Employe employe = new Employe();
+//		employe.setId(1);
+//		Mission mission = new Mission();
+//		mission.setId(2);
+//		
+//		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+//		Date dateDebut = dateFormat.parse("01/01/2016");
+//		Date dateFin = dateFormat.parse("15/06/2016");
+//		employeServiceremote.getTimesheetsByMissionAndDate(employe, mission, dateDebut, dateFin);
 	}
-
 }

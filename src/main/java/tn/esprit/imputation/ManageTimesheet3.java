@@ -38,15 +38,17 @@ public class ManageTimesheet3 {
 		
 		
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-		
 		//ajouter un timesheet pour Aymen
 		Date dateDebutAymenOuali4G = dateFormat.parse("01/01/2016");
 		Date dateFinAymenOuali4G = dateFormat.parse("31/12/2016");
 		int aymenOualiId = 3;
-		timesheetServiceRemote.ajouterTimesheet(miseEnPlace4GId, aymenOualiId, dateDebutAymenOuali4G, dateFinAymenOuali4G);
+		timesheetServiceRemote.ajouterTimesheet(miseEnPlace4GId, aymenOualiId, 
+									dateDebutAymenOuali4G, dateFinAymenOuali4G);
 		//Validation timesheet de Aymen
 		int yosraArbiId = 5; //Chef departement telecom
-		timesheetServiceRemote.validerTimesheet(miseEnPlace4GId, aymenOualiId, dateDebutAymenOuali4G, dateFinAymenOuali4G, yosraArbiId);
+		timesheetServiceRemote.validerTimesheet(miseEnPlace4GId, aymenOualiId, 
+												dateDebutAymenOuali4G, dateFinAymenOuali4G, 
+												yosraArbiId);
 		
 		//Ajouter 2 timesheet pour Khaled
 		int khaledKallelId = 1;
@@ -71,25 +73,28 @@ public class ManageTimesheet3 {
 		
 		
 		//int aymenOualiId = 3;
-		List<String> missionNamesAymen = timesheetServiceRemote.findAllMissionByEmployeJPQL(aymenOualiId);
+		List<Mission> missionNamesAymen = timesheetServiceRemote.findAllMissionByEmployeJPQL(aymenOualiId);
 		System.out.println("Mission de Aymen :");
-		for(String missionName : missionNamesAymen){
-			System.out.println(missionName);
+		for(Mission mission : missionNamesAymen){
+			System.out.println(mission.getName());
 		}
 		
+		
 		//int khaledKallelId = 1;
-		List<String> missionNamesKhaled = timesheetServiceRemote.findAllMissionByEmployeJPQL(khaledKallelId);
+		List<Mission> missionNamesKhaled = timesheetServiceRemote.findAllMissionByEmployeJPQL(khaledKallelId);
 		System.out.println("Mission de Khaled :");
-		for(String missionName : missionNamesKhaled){
-			System.out.println(missionName);
+		for(Mission mission : missionNamesKhaled){
+			System.out.println(mission.getName());
 		}
 		
 		//int mohamedZitouniId = 2;
-		List<String> missionNamesMohamed = timesheetServiceRemote.findAllMissionByEmployeJPQL(mohamedZitouniId);
+		List<Mission> missionNamesMohamed = timesheetServiceRemote.findAllMissionByEmployeJPQL(mohamedZitouniId);
 		System.out.println("Mission de Mohamed :");
-		for(String missionName : missionNamesMohamed){
-			System.out.println(missionName);
+		for(Mission mission : missionNamesMohamed){
+			System.out.println(mission.getName());
 		}
+		
+		timesheetServiceRemote.getAllEmployeByMission(1);
 		
 	}
 
