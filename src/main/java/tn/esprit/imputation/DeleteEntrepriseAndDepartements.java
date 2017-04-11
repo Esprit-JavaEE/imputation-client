@@ -15,7 +15,7 @@ public class DeleteEntrepriseAndDepartements {
 	}
 
 	public static void main(String[] args) throws NamingException {
-		String jndiName = "imputation-ejb/EntrepriseService!tn.esprit.timesheet.services.interfaces.EntrepriseServiceRemote";
+		String jndiName = "imputation-ear/imputation-ejb/EntrepriseService!tn.esprit.timesheet.services.interfaces.EntrepriseServiceRemote";
 		Context context = new InitialContext();
 		EntrepriseServiceRemote entrepriseServiceRemote = (EntrepriseServiceRemote) context.lookup(jndiName);
 		

@@ -24,7 +24,7 @@ public class ManageEmployeAndContrat2 {
 	}
 
 	public static void main(String[] args) throws NamingException, ParseException {
-		String jndiName = "imputation-ejb/EmployeService!tn.esprit.timesheet.services.interfaces.EmployeServiceRemote";
+		String jndiName = "imputation-ear/imputation-ejb/EmployeService!tn.esprit.timesheet.services.interfaces.EmployeServiceRemote";
 		Context context = new InitialContext();
 		EmployeServiceRemote employeServiceremote = (EmployeServiceRemote) context.lookup(jndiName);
 

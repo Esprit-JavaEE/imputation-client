@@ -16,7 +16,7 @@ import tn.esprit.timesheet.services.interfaces.TimesheetServiceRemote;
 public class ManageTimesheet3 {
 
 	public static void main(String[] args) throws NamingException, ParseException {
-		String jndiName = "imputation-ejb/TimesheetService!tn.esprit.timesheet.services.interfaces.TimesheetServiceRemote";
+		String jndiName = "imputation-ear/imputation-ejb/TimesheetService!tn.esprit.timesheet.services.interfaces.TimesheetServiceRemote";
 		Context context = new InitialContext();
 		TimesheetServiceRemote timesheetServiceRemote = (TimesheetServiceRemote) context.lookup(jndiName);
 		
